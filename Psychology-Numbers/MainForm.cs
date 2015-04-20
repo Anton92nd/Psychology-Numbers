@@ -21,18 +21,23 @@ namespace Psychology_Numbers
             mainButton.BackColor = Color.SkyBlue;
             mainButton.Click += MainButtonClick;
         }
-
         private void MainButtonClick(object sender, EventArgs e)
         {
-            label1.Text = @"Вам предстоит пройти 4 этапа.";
+            label1.Text = @"Вам предстоит пройти 4 этапа.
+
+Первый этап.
+Вам будет представлена таблица 7х7,
+случайным образом заполненная числами.
+
+Ваше задание на первом этапе - находить все числа,
+написанные красным цветом, в порядке возрастания.";
             mainButton.BackColor = Color.MediumSeaGreen;
-            mainButton.Text = @"Начали!";
+            mainButton.Text = @"Запустить первый этап";
             mainButton.Click += Go_Click;
         }
 
         private void Go_Click(object sender, EventArgs e)
         {
-            Console.Write(@"green button presed!");
         }
 
 	}
