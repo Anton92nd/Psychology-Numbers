@@ -38,6 +38,8 @@ namespace Psychology_Numbers
 
         private void Go_Click(object sender, EventArgs e)
         {
+	        var t = new Task1();
+			t.Show();
         }
 
 	}
