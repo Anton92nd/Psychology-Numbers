@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,6 +33,12 @@ namespace Psychology_Numbers
 			var number = new ColoredNumber(int.Parse(button.Text), button.ForeColor);
 			if (number.Equals(order[position]))
 			{
+				var oldColor = button.BackColor;
+				button.BackColor = Color.GreenYellow;
+				button.Refresh();
+				Thread.Sleep(500);
+				button.BackColor = oldColor;
+				button.Refresh();
 				position++;
 				Console.WriteLine("Success!");
 			}

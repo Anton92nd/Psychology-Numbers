@@ -28,11 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tableLayoutPanel1 = new Table();
+			this.tableLayoutPanel1 = new Psychology_Numbers.Table();
 			this.SuspendLayout();
-			// 
-			// tableLayoutPanel1
-			// 
 			// 
 			// Task1
 			// 
@@ -41,7 +38,7 @@
 			this.ClientSize = new System.Drawing.Size(705, 370);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "Task1";
-			this.Text = "Task1";
+			this.Text = "Тест 1";
 			this.Load += new System.EventHandler(this.Task1_Load);
 			this.ResumeLayout(false);
 
@@ -49,6 +46,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private Table tableLayoutPanel1;
+
 	}
 }
