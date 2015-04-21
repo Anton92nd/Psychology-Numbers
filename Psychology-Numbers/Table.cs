@@ -51,14 +51,8 @@ namespace Psychology_Numbers
 					FlatStyle = FlatStyle.Standard,
 					ForeColor = numbers[i].Color
 				};
-				button.Click += ButtonOnClick;
 				Controls.Add(button, i / 7, i % 7);
 			}
-		}
-		private void ButtonOnClick(object sender, EventArgs eventArgs)
-		{
-			var button = (Button) sender;
-			Console.WriteLine(((Button)sender).Text + " " + ((Button)sender).ForeColor);
 		}
 	}
 }

@@ -17,5 +17,10 @@ namespace Psychology_Numbers
 			Number = number;
 			Color = color;
 		}
+
+		public bool Equals(ColoredNumber otherNumber)
+		{
+			return Number == otherNumber.Number && Color == otherNumber.Color;
+		}
 	}
 }
