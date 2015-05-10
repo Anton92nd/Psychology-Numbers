@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -11,6 +13,8 @@ namespace Psychology_Numbers
 		private static ColoredNumber[] order = Enumerable.Range(1, 49)
 			.Select(x => (x % 2 == 0) ? new ColoredNumber((24 - x / 2 + 1), Color.Black) : new ColoredNumber((x / 2 + 1), Color.Red))
 			.ToArray();
+
+		private string[] sounds = Enumerable.Range(1, 25).Select(x => x.ToString()).ToArray();
 
 		private int position = 0;
 		private System.Threading.Timer timer;
@@ -62,7 +66,9 @@ namespace Psychology_Numbers
 		private void PlaySound(object state)
 		{
 			var rand = (Random) state;
-			Console.WriteLine(rand.Next(49));
+			var sound = sounds[rand.Next()%sounds.Length] + ".wav";
+			var player = new SoundPlayer(Path.Combine("sounds", sound));
+			player.Play();
 		}
 
 		private void Task4_Load(object sender, EventArgs e)
