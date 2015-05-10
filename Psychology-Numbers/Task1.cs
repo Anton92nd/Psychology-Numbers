@@ -38,7 +38,6 @@ namespace Psychology_Numbers
 					+ order[position - 1];
 		    }
 			if (position != order.Length) return;
-			MainForm.SmthWork--;
 			Close();
 		}
 
@@ -63,7 +62,6 @@ namespace Psychology_Numbers
 		private void Task1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Owner.Show();
-			MainForm.SmthWork--;
 			MainForm.Clock.Stop();
 		}
 	}

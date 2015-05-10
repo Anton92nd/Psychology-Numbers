@@ -13,6 +13,7 @@ namespace Psychology_Numbers
 			.ToArray();
 
 		private int position = 0;
+		private System.Threading.Timer timer;
 
 		private void ClickHandler(object sender, EventArgs eventArgs)
 		{
@@ -48,12 +49,20 @@ namespace Psychology_Numbers
 		{
 			InitializeComponent();
 			label1.Text = "";
+			var rand = new Random();
+			timer = new System.Threading.Timer(PlaySound, rand, 0, 5000);
 			for (var i = 0; i < 49; i++)
 			{
 				var button = (Button)tableLayoutPanel1.Controls[i];
 				button.Click += ClickHandler;
 				button.Height = 60;
 			}
+		}
+
+		private void PlaySound(object state)
+		{
+			var rand = (Random) state;
+			Console.WriteLine(rand.Next(49));
 		}
 
 		private void Task4_Load(object sender, EventArgs e)
@@ -66,6 +75,7 @@ namespace Psychology_Numbers
 		{
 			Owner.Show();
 			MainForm.Clock.Stop();
+			timer.Dispose();
 		}
 	}
 }

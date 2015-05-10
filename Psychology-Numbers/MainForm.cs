@@ -9,7 +9,6 @@ namespace Psychology_Numbers
     {
 
         public static Stopwatch Clock = new Stopwatch();
-	    public static int SmthWork = 0;
 
 		#region
 		private readonly string[] _texts =
@@ -67,12 +66,11 @@ namespace Psychology_Numbers
             label1.Text = _texts[0];
             mainButton.BackColor = Color.MediumSeaGreen;
             mainButton.Text = @"Запустить первый этап";
-            mainButton.Click += Go_Click;
+            mainButton.Click += Go_1Click;
         }
-        private void Go_Click(object sender, EventArgs e)
+        private void Go_1Click(object sender, EventArgs e)
         {
-	        mainButton.Click -= Go_Click;
-	        SmthWork++;
+	        mainButton.Click -= Go_1Click;
 	        var t = new Task1();
 	        t.Owner = this;
 			t.Show();
@@ -82,7 +80,6 @@ namespace Psychology_Numbers
         }
 	    private void Go_2Click(object sender, EventArgs e)
 	    {
-			if (SmthWork > 0) return;
 			mainButton.Click -= Go_2Click;
 			Console.WriteLine(Clock.Elapsed);
 			var t = new Task2();
@@ -92,12 +89,17 @@ namespace Psychology_Numbers
 			mainButton.Text = @"Запустить третий этап";
 			label1.Text = _texts[2];
 	    }
+
+	    private double _firstAndSecondSeconds;
+
 		private void Go_3Click(object sender, EventArgs e)
 		{
-			if (SmthWork > 0) return;
-			mainButton.Click -= Go_3Click;
+			_firstAndSecondSeconds = Clock.Elapsed.TotalSeconds;
 			Console.WriteLine(Clock.Elapsed);
+			Clock.Reset();
+			mainButton.Click -= Go_3Click;
 			var t = new Task3();
+			t.FormClosed += Show3Results;
 			t.Owner = this;
 			t.Show();
 			mainButton.Click += Go_4Click;
@@ -105,15 +107,29 @@ namespace Psychology_Numbers
 
 		}
 
+		private void Show3Results(object sender, FormClosedEventArgs e)
+		{
+			label1.Text = string.Format("Результат после трёх испытаний: {0:0.000} секунд",
+				Clock.Elapsed.TotalSeconds - _firstAndSecondSeconds);
+			Clock.Reset();
+		}
+
 		private void Go_4Click(object sender, EventArgs e)
 		{
-			if (SmthWork > 0) return;
 			mainButton.Click -= Go_3Click;
-			Console.WriteLine(Clock.Elapsed);
+			Clock.Reset();
 			var t = new Task4();
+			t.FormClosed += Show4Results;
 			t.Owner = this;
 			t.Show();
 			mainButton.Hide();
 		}
+
+	    private void Show4Results(object sender, FormClosedEventArgs e)
+	    {
+			label1.Text = string.Format("Результат после 4го испытания испытаний: {0:0.000} секунд",
+				Clock.Elapsed.TotalSeconds - _firstAndSecondSeconds);
+			Clock.Reset();
+	    }
     }
 }
