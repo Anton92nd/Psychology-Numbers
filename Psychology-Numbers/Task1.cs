@@ -16,10 +16,6 @@ namespace Psychology_Numbers
 		private void ClickHandler(object sender, EventArgs eventArgs)
 		{
             var clock = MainForm.Clock;
-			if (position == 0 && !clock.IsRunning)
-			{
-				clock.Start();
-			}
 			var button = (Button) sender;
 			Console.WriteLine(button.Text + @" " + button.ForeColor);
 			var number = new ColoredNumber(int.Parse(button.Text), button.ForeColor);
@@ -42,8 +38,7 @@ namespace Psychology_Numbers
 					+ order[position - 1];
 		    }
 			if (position != order.Length) return;
-			MainForm.SmthWork = 0;
-			clock.Stop();
+			MainForm.SmthWork--;
 			Close();
 		}
 
@@ -61,7 +56,15 @@ namespace Psychology_Numbers
 
 		private void Task1_Load(object sender, EventArgs e)
 		{
+			Owner.Hide();
+			MainForm.Clock.Start();
+		}
 
+		private void Task1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Owner.Show();
+			MainForm.SmthWork--;
+			MainForm.Clock.Stop();
 		}
 	}
 }

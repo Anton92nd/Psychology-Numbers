@@ -72,8 +72,9 @@ namespace Psychology_Numbers
         private void Go_Click(object sender, EventArgs e)
         {
 	        mainButton.Click -= Go_Click;
-	        SmthWork = 1;
+	        SmthWork++;
 	        var t = new Task1();
+	        t.Owner = this;
 			t.Show();
             mainButton.Click += Go_2Click;
 			mainButton.Text = @"Запустить второй этап";
@@ -81,10 +82,11 @@ namespace Psychology_Numbers
         }
 	    private void Go_2Click(object sender, EventArgs e)
 	    {
-			if (SmthWork == 1) return;
+			if (SmthWork > 0) return;
 			mainButton.Click -= Go_2Click;
 			Console.WriteLine(Clock.Elapsed);
 			var t = new Task2();
+		    t.Owner = this;
 			t.Show();
 		    mainButton.Click += Go_3Click;
 			mainButton.Text = @"Запустить третий этап";
@@ -92,10 +94,11 @@ namespace Psychology_Numbers
 	    }
 		private void Go_3Click(object sender, EventArgs e)
 		{
-			if (SmthWork == 1) return;
+			if (SmthWork > 0) return;
 			mainButton.Click -= Go_3Click;
 			Console.WriteLine(Clock.Elapsed);
 			var t = new Task3();
+			t.Owner = this;
 			t.Show();
 		}
     }
