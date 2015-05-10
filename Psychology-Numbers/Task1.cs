@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
@@ -39,10 +38,11 @@ namespace Psychology_Numbers
 		    }
 		    else
 		    {
-		        label1.Text = position == 0 ? "First is RED 1": "Incorrectly.\nLast correct click was: " + order[position - 1];
+		        label1.Text = position == 0 ? "First is RED 1": "Incorrect.\nLast correct click was: " + order[position - 1];
 		    }
 			if (position == order.Length)
 			{
+				MainForm.SmthWork = 0;
 				clock.Stop();
 				Close();
 			}
@@ -56,6 +56,7 @@ namespace Psychology_Numbers
 			{
 				var button = (Button)tableLayoutPanel1.Controls[i];
 				button.Click += ClickHandler;
+				button.Height = 60;
 			}
 		}
 

@@ -9,6 +9,32 @@ namespace Psychology_Numbers
     {
 
         public static Stopwatch Clock = new Stopwatch();
+	    public static int SmthWork = 0;
+
+		#region
+		private string[] texts =
+	    {
+		    @"Вам предстоит пройти 4 этапа.
+
+Первый этап.
+Вам будет представлена таблица 7х7,
+случайным образом заполненная числами.
+
+Ваше задание на первом этапе - находить все числа,
+написанные красным цветом, в порядке возрастания.",
+
+		    @"Первый этап успешно пройден
+
+Второй этап.
+
+Вам будет представлена таблица 7х7,
+случайным образом заполненная числами.
+
+Ваше задание на первом этапе - находить все числа,
+написанные черным цветом, в порядке убывания(24 -> 1)."
+	    };
+		#endregion
+
         public MainForm()
         {
             InitializeComponent();
@@ -26,14 +52,8 @@ namespace Psychology_Numbers
         }
         private void MainButtonClick(object sender, EventArgs e)
         {
-            label1.Text = @"Вам предстоит пройти 4 этапа.
-
-Первый этап.
-Вам будет представлена таблица 7х7,
-случайным образом заполненная числами.
-
-Ваше задание на первом этапе - находить все числа,
-написанные красным цветом, в порядке возрастания.";
+			mainButton.Click -= MainButtonClick;
+            label1.Text = texts[0];
             mainButton.BackColor = Color.MediumSeaGreen;
             mainButton.Text = @"Запустить первый этап";
             mainButton.Click += Go_Click;
@@ -41,10 +61,21 @@ namespace Psychology_Numbers
 
         private void Go_Click(object sender, EventArgs e)
         {
+	        mainButton.Click -= Go_Click;
+	        SmthWork = 1;
 	        var t = new Task1();
 			t.Show();
-            //mainButton.Click += Go_2Click;
+            mainButton.Click += Go_2Click;
+			mainButton.Text = @"Запустить второй этап";
+			label1.Text = texts[1];
         }
-
+	    private void Go_2Click(object sender, EventArgs e)
+	    {
+			mainButton.Click -= Go_2Click;
+			Console.WriteLine(Clock.Elapsed);
+			if (SmthWork == 1) return;
+			var t = new Task2();
+			t.Show();
+	    }
     }
 }
