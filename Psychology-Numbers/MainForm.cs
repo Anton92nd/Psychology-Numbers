@@ -30,8 +30,19 @@ namespace Psychology_Numbers
 Вам будет представлена таблица 7х7,
 случайным образом заполненная числами.
 
-Ваше задание на первом этапе - находить все числа,
-написанные черным цветом, в порядке убывания(24 -> 1)."
+Ваше задание на втором этапе - находить все числа,
+написанные черным цветом, в порядке убывания(24 -> 1).",
+			
+			@"Второй этап успешно пройден
+
+Третий этап.
+
+Вам будет представлена таблица 7х7,
+случайным образом заполненная числами.
+
+Ваше задание на третьем этапе - найти все
+числа в порядке 1-красная, 24-черная, 2-крассная,
+23-черная, ... 24-красная, 1-черная, 25-крассная."
 	    };
 		#endregion
 
@@ -58,7 +69,6 @@ namespace Psychology_Numbers
             mainButton.Text = @"Запустить первый этап";
             mainButton.Click += Go_Click;
         }
-
         private void Go_Click(object sender, EventArgs e)
         {
 	        mainButton.Click -= Go_Click;
@@ -71,11 +81,22 @@ namespace Psychology_Numbers
         }
 	    private void Go_2Click(object sender, EventArgs e)
 	    {
+			if (SmthWork == 1) return;
 			mainButton.Click -= Go_2Click;
 			Console.WriteLine(Clock.Elapsed);
-			if (SmthWork == 1) return;
 			var t = new Task2();
 			t.Show();
+		    mainButton.Click += Go_3Click;
+			mainButton.Text = @"Запустить третий этап";
+			label1.Text = _texts[2];
 	    }
+		private void Go_3Click(object sender, EventArgs e)
+		{
+			if (SmthWork == 1) return;
+			mainButton.Click -= Go_3Click;
+			Console.WriteLine(Clock.Elapsed);
+			var t = new Task3();
+			t.Show();
+		}
     }
 }

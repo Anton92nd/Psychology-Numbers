@@ -20,7 +20,7 @@ namespace Psychology_Numbers
 
 	    public override string ToString()
 	    {
-	        return Number.ToString() + "[" + this.Color.Name + "]";
+			return this.Color.Name + " " + Number;
 	    }
 	}
 }
