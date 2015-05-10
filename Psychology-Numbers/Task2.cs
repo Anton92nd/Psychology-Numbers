@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Psychology_Numbers
@@ -27,7 +22,7 @@ namespace Psychology_Numbers
 				clock.Start();
 			}
 			var button = (Button)sender;
-			Console.WriteLine(button.Text + " " + button.ForeColor);
+			Console.WriteLine(button.Text + @" " + button.ForeColor);
 			var number = new ColoredNumber(int.Parse(button.Text), button.ForeColor);
 			if (number.Equals(order[position]))
 			{
@@ -38,19 +33,18 @@ namespace Psychology_Numbers
 				button.BackColor = oldColor;
 				button.Refresh();
 				position++;
-				Console.WriteLine("Success!");
+				Console.WriteLine(@"Success!");
 
 				label1.Text = "";
 			}
 			else
 			{
-				label1.Text = position == 0 ? "First is Black 24" : "Incorrect.\nLast correct click was: " + order[position - 1];
+				label1.Text = position == 0 ? "First is Black 24" : "Incorrect.\nLast correct click was: " 
+					+ order[position - 1];
 			}
-			if (position == order.Length)
-			{
-				clock.Stop();
-				Close();
-			}
+			if (position != order.Length) return;
+			clock.Stop();
+			Close();
 		}
 		public Task2()
 		{

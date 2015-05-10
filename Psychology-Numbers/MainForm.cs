@@ -12,7 +12,7 @@ namespace Psychology_Numbers
 	    public static int SmthWork = 0;
 
 		#region
-		private string[] texts =
+		private readonly string[] _texts =
 	    {
 		    @"Вам предстоит пройти 4 этапа.
 
@@ -53,7 +53,7 @@ namespace Psychology_Numbers
         private void MainButtonClick(object sender, EventArgs e)
         {
 			mainButton.Click -= MainButtonClick;
-            label1.Text = texts[0];
+            label1.Text = _texts[0];
             mainButton.BackColor = Color.MediumSeaGreen;
             mainButton.Text = @"Запустить первый этап";
             mainButton.Click += Go_Click;
@@ -67,7 +67,7 @@ namespace Psychology_Numbers
 			t.Show();
             mainButton.Click += Go_2Click;
 			mainButton.Text = @"Запустить второй этап";
-			label1.Text = texts[1];
+			label1.Text = _texts[1];
         }
 	    private void Go_2Click(object sender, EventArgs e)
 	    {
