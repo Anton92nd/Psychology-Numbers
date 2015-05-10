@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Psychology_Numbers
 {
@@ -22,5 +17,10 @@ namespace Psychology_Numbers
 		{
 			return Number == otherNumber.Number && Color == otherNumber.Color;
 		}
+
+	    public override string ToString()
+	    {
+	        return Number.ToString() + "[" + this.Color.Name + "]";
+	    }
 	}
 }

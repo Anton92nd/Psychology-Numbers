@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace Psychology_Numbers
 {
     public partial class MainForm : Form
     {
+
+        public static Stopwatch Clock = new Stopwatch();
         public MainForm()
         {
             InitializeComponent();
@@ -40,7 +43,8 @@ namespace Psychology_Numbers
         {
 	        var t = new Task1();
 			t.Show();
+            //mainButton.Click += Go_2Click;
         }
 
-	}
+    }
 }
