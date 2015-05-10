@@ -100,6 +100,20 @@ namespace Psychology_Numbers
 			var t = new Task3();
 			t.Owner = this;
 			t.Show();
+			mainButton.Click += Go_4Click;
+			mainButton.Text = @"Запустить последний этап";
+
+		}
+
+		private void Go_4Click(object sender, EventArgs e)
+		{
+			if (SmthWork > 0) return;
+			mainButton.Click -= Go_3Click;
+			Console.WriteLine(Clock.Elapsed);
+			var t = new Task4();
+			t.Owner = this;
+			t.Show();
+			mainButton.Hide();
 		}
     }
 }

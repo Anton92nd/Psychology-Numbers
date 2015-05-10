@@ -85,6 +85,7 @@
 			this.ClientSize = new System.Drawing.Size(705, 370);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "Task2";
 			this.Text = "Тест 2";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Task2_FormClosed);
