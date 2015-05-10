@@ -35,7 +35,7 @@ namespace Psychology_Numbers
 			}
 			else
 			{
-				label1.Text = position == 0 ? "First is Black 24" : "Incorrect.\nLast correct click was: " 
+				label1.Text = position == 0 ? "Первое число - 24 черное" : "Неверно.\nПоследний правильный выбор: " 
 					+ order[position - 1];
 			}
 			if (position != order.Length) return;

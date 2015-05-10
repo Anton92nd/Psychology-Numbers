@@ -36,8 +36,8 @@ namespace Psychology_Numbers
 			else
 			{
 				label1.Text = 
-					position < 2 ? new string[2]{"First is Red 1", "Secon click must be 24 Black"}[position]
-					: "Incorrect.\nTry: " 
+					position < 2 ? new string[2]{"Первое число - 1 красное", "Второе число - 24 черное"}[position]
+					: "Неверно.\nПопробуйте: " 
 					+ order[position];
 			}
 			if (position != order.Length) return;
