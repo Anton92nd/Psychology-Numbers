@@ -53,7 +53,7 @@ namespace Psychology_Numbers
 			InitializeComponent();
 			label1.Text = "";
 			var rand = new Random();
-			timer = new System.Threading.Timer(PlaySound, rand, 0, 5000);
+			timer = new System.Threading.Timer(PlaySound, rand, 0, 3000);
 			for (var i = 0; i < 49; i++)
 			{
 				var button = (Button)tableLayoutPanel1.Controls[i];
