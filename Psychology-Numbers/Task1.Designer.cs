@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Task1));
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new Psychology_Numbers.Table();
 			this.SuspendLayout();
@@ -73,6 +74,7 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Task1";
 			this.Text = "Тест 1";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Task1_FormClosed);
