@@ -53,9 +53,9 @@ namespace Psychology_Numbers
         // other properties mainButton and label1 in InitializeComponent
         private void MainForm_Load(object sender, EventArgs e)
         {
-            label1.Text = @"Доброго времени суток." + '\n' +
-                          @"Наша дружная команда в лице Медведя," + '\n' +
-                          @"Камня и Фуха предлагает вам поройти данное тестирование.";
+            label1.Text = @"Здравствуйте." + '\n' +
+                          "Вам предлагается пройти тестирование на тему \"\"" + '\n' +
+                          "\n\nРаботу выполнили:\n    Перевощиков Павел\n    Чаплыгин Антон\n    Чухарев Александр";
             mainButton.Text = @"Готовы?";
             mainButton.BackColor = Color.SkyBlue;
             mainButton.Click += MainButtonClick;

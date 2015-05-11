@@ -15,10 +15,9 @@ namespace Psychology_Numbers
 
 		private void ClickHandler(object sender, EventArgs eventArgs)
 		{
-            var clock = MainForm.Clock;
 			var button = (Button) sender;
-			Console.WriteLine(button.Text + @" " + button.ForeColor);
-			var number = new ColoredNumber(int.Parse(button.Text), button.ForeColor);
+			//Console.WriteLine(button.Text + @" " + button.BackColor);
+			var number = new ColoredNumber(int.Parse(button.Text), button.BackColor);
 		    if (number.Equals(order[position]))
 		    {
 		        var oldColor = button.BackColor;
@@ -28,13 +27,12 @@ namespace Psychology_Numbers
 		        button.BackColor = oldColor;
 		        button.Refresh();
 		        position++;
-		        Console.WriteLine(@"Success!");
-
+		        //Console.WriteLine(@"Success!");
 		        label1.Text = "";
 		    }
 		    else
 		    {
-		        label1.Text = position == 0 ? "Первое число - 1 красное": "Неверно.\nПоследний правильный выбор: "
+		        label1.Text = position == 0 ? "Первое число - 1 красное": "Неверно.\nПоследний правильный\nвыбор: "
 					+ order[position - 1];
 		    }
 			if (position != order.Length) return;
@@ -49,7 +47,6 @@ namespace Psychology_Numbers
 			{
 				var button = (Button)tableLayoutPanel1.Controls[i];
 				button.Click += ClickHandler;
-				button.Height = 60;
 			}
 		}
 

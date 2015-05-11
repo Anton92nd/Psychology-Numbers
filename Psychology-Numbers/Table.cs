@@ -26,7 +26,7 @@ namespace Psychology_Numbers
 			{
 				RowStyles.Add(new RowStyle(SizeType.Percent, 14.3F));
 			}
-			Size = new Size(300, 300);
+			Size = new Size(500, 500);
 			InitButtons();
 		}
 
@@ -49,7 +49,11 @@ namespace Psychology_Numbers
 				{
 					Text = numbers[i].Number.ToString(CultureInfo.InvariantCulture),
 					FlatStyle = FlatStyle.Standard,
-					ForeColor = numbers[i].Color
+					ForeColor = Color.White,
+					BackColor = numbers[i].Color,
+					Height = 90,
+					Width = 70,
+					Font = new Font("Times New Roman", 24F, FontStyle.Bold)
 				};
 				Controls.Add(button, i / 7, i % 7);
 			}

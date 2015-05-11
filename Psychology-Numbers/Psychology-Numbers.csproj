@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FDED3184-CD28-4E1C-9A7E-C99BF303B1D4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Psychology_Numbers</RootNamespace>
     <AssemblyName>Psychology-Numbers</AssemblyName>
@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Sample.png" />
     <Content Include="sounds\1.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

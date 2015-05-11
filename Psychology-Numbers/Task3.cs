@@ -18,8 +18,8 @@ namespace Psychology_Numbers
 		{
 			var clock = MainForm.Clock;
 			var button = (Button)sender;
-			Console.WriteLine(button.Text + @" " + button.ForeColor);
-			var number = new ColoredNumber(int.Parse(button.Text), button.ForeColor);
+			//Console.WriteLine(button.Text + @" " + button.BackColor);
+			var number = new ColoredNumber(int.Parse(button.Text), button.BackColor);
 			if (number.Equals(order[position]))
 			{
 				var oldColor = button.BackColor;
@@ -29,8 +29,7 @@ namespace Psychology_Numbers
 				button.BackColor = oldColor;
 				button.Refresh();
 				position++;
-				Console.WriteLine(@"Success!");
-
+				//Console.WriteLine(@"Success!");
 				label1.Text = "";
 			}
 			else
